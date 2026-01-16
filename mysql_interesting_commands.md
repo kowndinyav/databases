@@ -4,6 +4,12 @@ SHOW PROCESSLIST;
 # show open transactions
 SELECT * FROM information_schema.innodb_trx;
 
+
+SELECT @@transaction_isolation;
+SELECT @@session.transaction_isolation;
+SELECT @@global.transaction_isolation;
+
+
 -- Find the ID from SHOW PROCESSLIST, then:
 KILL <thread_id>;
 
@@ -41,4 +47,18 @@ INNER JOIN information_schema.innodb_trx b
     ON b.trx_id = w.blocking_engine_transaction_id
 INNER JOIN information_schema.innodb_trx r 
     ON r.trx_id = w.requesting_engine_transaction_id;
+
+
+
+-- See all metadata locks
+SELECT 
+    object_type,
+    object_schema,
+    object_name,
+    lock_type,
+    lock_duration,
+    lock_status,
+    owner_thread_id
+FROM performance_schema.metadata_locks
+WHERE object_schema = 'testdb';
 
