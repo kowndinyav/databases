@@ -1,0 +1,10 @@
+# L1: a deliberately tiny MySQL so we hit the connection limit quickly.
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: rdsproxy-l1-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    command: --max_connections=20

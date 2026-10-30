@@ -1,6 +1,6 @@
 # Learning AWS RDS Proxy — from first principles, by doing
 
-Engine: **MySQL 8.0** (RDS for MySQL).
+Engine: **MySQL 8.4** (RDS for MySQL; 8.0 is past standard support and costs extra).
 Infra: plain **AWS CLI bash scripts**, one per lesson, so you can see every resource being created. Each lesson has a matching teardown.
 Region: `us-east-1`.
 
@@ -39,7 +39,7 @@ Two catches to learn as well:
 
 ### L2 — Base AWS lab (no proxy yet)
 - Default VPC, one security group (self-referencing on port 3306).
-- RDS MySQL 8.0 `db.t4g.micro`, Single-AZ.
+- RDS MySQL 8.4 `db.t4g.micro`, Single-AZ.
 - EC2 `t4g.micro` client in the same VPC (access through SSM Session Manager, no SSH keys), with Python and the `mysql` client installed.
 - Check `SELECT @@max_connections;` and compare it with the RDS formula `{DBInstanceClassMemory/12582880}`.
 
