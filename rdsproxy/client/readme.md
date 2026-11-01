@@ -9,6 +9,7 @@ python3 storm.py rdsproxy-lab-proxy.proxy-cwp4qc4eqavj.us-east-1.rds.amazonaws.c
 python3 storm.py rdsproxy-lab-proxy.proxy-cwp4qc4eqavj.us-east-1.rds.amazonaws.com 100 app
 
 
+python3 warm.py rdsproxy-lab-proxy.proxy-cwp4qc4eqavj.us-east-1.rds.amazonaws.com 100
 
 
 

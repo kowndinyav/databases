@@ -104,3 +104,13 @@ The proxy is an AWS service, and it needs permission to read that secret. We cre
   The first command should print creating plus the proxy's endpoint, which is the new host you'll point storm.py at. Paste the output.
 
 
+
+
+
+```
+aws rds modify-db-proxy-target-group --profile personal \
+    --db-proxy-name rdsproxy-lab-proxy \
+    --target-group-name default \
+    --connection-pool-config ConnectionBorrowTimeout=5 \
+    --query 'DBProxyTargetGroup.ConnectionPoolConfig'
+```
